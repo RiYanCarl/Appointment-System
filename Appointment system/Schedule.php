@@ -13,8 +13,7 @@ include_once 'Connections/Calendar_function.php';
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   
-  <!-- <script async  src="http://demos.codexworld.com/build-event-calendar-using-jquery-ajax-php/js/jquery.min.js"></script> --> -->
-   <!-- <script type="text/javascript" src="JS/website.js"  defer></script> -->
+  <!-- <script async  src="http://demos.codexworld.com/build-event-calendar-using-jquery-ajax-php/js/jquery.min.js"></script> -->
 </head>
 
 <body>
@@ -189,4 +188,6 @@ include_once 'Connections/Calendar_function.php';
   </div><!-- end of container -->
 
 </body>
+<!-- FIXED: this should be at this place -->
+   <script type="text/javascript" src="JS/website.js" ></script>
 </html>

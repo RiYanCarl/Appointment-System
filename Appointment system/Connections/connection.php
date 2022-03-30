@@ -4,7 +4,7 @@
          
         $host = "localhost";
         $username = "root";
-        $password = "12345";
+         $password = ""; //FIXME:reset it to your password
         $database = "client_database";
                 
         $con = new mysqli($host,$username,$password,$database);

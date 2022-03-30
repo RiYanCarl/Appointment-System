@@ -136,7 +136,7 @@ function getCalender($year = '', $month = ''){
         function getCalendar(target_div, year, month){ 
             $.ajax({ 
                 type:'POST', 
-                url:'./Calendar_function.php', 
+                url:'./Connections/Calendar_function.php',  //the problem is here all code is fine
                 data:'func=getCalender&year='+year+'&month='+month, 
                 success:function(html){ 
                     $('#'+target_div).html(html); 
@@ -147,7 +147,7 @@ function getCalender($year = '', $month = ''){
         function getEvents(date){ 
             $.ajax({ 
                 type:'POST', 
-                url:'./Calendar_function.php', 
+                url:'./Connections/Calendar_function.php',  //the problem is here all code is fine
                 data:'func=getEvents&date='+date, 
                 success:function(html){ 
                     $('#event_list').html(html); 
