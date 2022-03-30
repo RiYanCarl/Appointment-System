@@ -1,0 +1,151 @@
+/*office appoint*/
+.container-appoint{
+  background-color: rgba(245, 245, 245, 0.76); /*medjo White */
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 55px 0 0 0;
+  /* background: linear-gradient(64deg, #49a09d, #1f31d4);
+  background-size: 400% 200%; 
+  animation: gradient 10s ease infinite;*/
+  /* background-color: #D9E4EA; */
+  
+}
+.txt{
+  margin: auto;
+  font-family: "Montserrat";
+  width: 80%;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: 800;
+  color:#003366;
+  padding: 5px 0;
+  border-top:#003366 solid 5px;
+  border-bottom:#003366 solid 5px;
+}
+
+.row{
+  margin-top: 2%;
+  padding:auto;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+
+.col-md-4{
+  display: inline-flex; 
+  width: 320px;
+  margin: 0 1% 1% 1%;
+  justify-content: space-evenly;
+}
+
+/* .box {
+  text-align: center;
+  width: 370px;
+  padding-right: 15px;
+  padding-left: 15px;  
+  border:solid green;
+} */
+
+.our-category {
+  text-align: center;
+  border-radius: 10px;
+  background-color:transparent;
+  transition: all .4s ease-in-out;
+  width: 320px;
+  padding: 5px;
+  border: solid 0.5px #000;
+}
+
+.box-txt{
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+h4{
+  /* color: white; */
+  font-size: 20px;
+  padding: 0 0 0 0;
+  margin:0;
+  width: fit-content;
+  display: inline-block;
+  text-align: center;
+}
+
+.Notif{
+  background-color:#D81C3C;
+  font-family: "Montserrat";
+  color:white;
+  border-radius: 50%;
+  font-size: 20px;
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-top: -10px;
+  box-sizing: border-box;
+  
+}
+/* img{
+  height: 80px;
+  width: 80px;
+} */
+.icon-office {
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  margin: auto;
+}
+
+.Faculty {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/workspace.png");
+}
+.Registrar {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/building.png");
+}
+.Casher {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/cashier.png");
+}
+.OSDS {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/office-building (1).png");
+}
+.Clinic {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/clinic.png");
+}
+.Library {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/book.png");
+}
+.Gymnasium {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("../Picture/gymnasium.png");
+}
+
+.our-category:hover h4,
+.our-category:hover p {
+  color: #003366;
+  
+}
+
+.our-category:hover {
+  box-shadow: 0 0 5px 0 #003366;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+

@@ -1,0 +1,270 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.student-form{
+  width: 100%; 
+  padding: 3em 0;
+  background: linear-gradient(64deg, #49a09d, #2421be);
+  background-size: 400% 400%;
+}
+.txt{
+  margin:  2% auto 2% auto;
+	font-family: "Montserrat";
+	width: 100%;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 800;
+	color:#003366;
+	padding: 5px 0;
+	border-top:#003366 solid 3px;
+	border-bottom:#003366 solid 3px;
+}
+.container-form{
+  width: 90%; /* Landscape */
+ /* width: 50%;portrait */
+  height: auto;
+  padding: 1em 3em 5em 3em;
+  margin: 0em auto;
+  background-color: rgb(255, 255, 255); /* Fallback color blue*/
+  background-color: rgba(255, 255, 255, 0.822); /* Black w/opacity/see-through */
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #000;
+}
+h4 {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  width: auto;
+  color: #78788c;
+  border-bottom: 2px solid #78788c;
+}
+.half{
+ 
+ width: 80%;
+}
+.space{
+  width: 3em;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+input:focus {
+  border-bottom: 2px solid #78788c;
+}
+.p {
+  display: block;
+  font-size: 16px;
+  color: #5a5a5a;
+  text-align: left;
+  width: 100%;
+}
+.if{
+  color: blue;
+}
+button{
+  width: auto;
+  float: right;
+  padding: 8px 12px;
+  margin: 10px 10px;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+
+#update:hover {
+  background: #00b144;
+  color: #fff;
+}
+#Cancel:hover {
+  background: #e62626;
+  color: #fff;
+}
+#Reset:hover {
+  background: #c9960b;
+  color: #fff;
+}
+#qr-code:hover{
+  color: #fff;
+  background: #0095E0;
+}
+
+h2 {
+  color: #0095E0;
+  text-align: center;
+  text-shadow:  2px  1px 3px  #000000;
+}
+ 
+select option {
+  background-color: gray;
+  color: #fff;
+}
+
+.input-group {
+  margin-bottom: 1em;
+  zoom: 1;
+  
+}
+
+.col-half {
+  display: flex;
+  width: 100%;
+ justify-content: center;
+}
+.col-half:last-of-type {
+  padding-right: 0;
+}
+.col-third:last-of-type {
+  padding-right: 0;
+}
+@media only screen and (max-width: 540px) {
+  .col-half {
+    
+    padding-right: 0;
+  }
+}
+.note{
+  text-transform: uppercase;
+  font-size: 12px;
+ 
+}
+.txt-QR{
+  margin:  2% auto 2% auto;
+	font-family: "Montserrat";
+	width: 95%;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 800;
+	color:#003366;
+	padding: 5px 0;
+	border:#003366 solid 3px;
+
+}
+.qrButton{
+  text-align: center;
+  width: 450px;
+  margin: 20px 0 30px 0;
+}
+#canvas{
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center;
+}
+.attachment{
+  width: 75%;
+  text-align: center;
+  margin: auto;
+}
+
+.email{
+  text-align: center;
+  float: none;
+  padding: 8px 12px;
+  margin: 10px 20px;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+}
+.close{
+  width: 80px;
+  text-align: center;
+  float:right;
+  padding: 8px 12px;
+  margin: 10px 40px 10px 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  font-size: 13px;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.download{
+  width: 85px;
+  text-align: center;
+  float:right;
+  padding: 8px 12px;
+  margin: 10px 40px 10px 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  font-size: 13px;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#update:hover {
+  background: #00b144;
+  color: #fff;
+}
+.close:hover {
+  background: #e62626;
+  color: #fff;
+}
+.email:hover {
+  background: #c9960b;
+  color: #fff;
+}
+.download:hover{
+  color: #fff;
+  background: #0095E0;
+}
+
+.con-QR{
+  width: 400px;
+  height: 600px;
+  box-shadow: 0 0 40px -10px #000;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 2%;
+  margin-top: 5%;
+  background-color: white;
+  border-radius: 30px;
+}
+#canvas{
+  box-shadow: 0 1px 40px -20px #000;
+  //border: solid 1px black;
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+.pop-up{
+  
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgb(255, 255, 255); /* Fallback color blue*/
+  background-color: rgba(255, 255, 255, 0.596); /* Black w/opacity/see-through */
+
+}
