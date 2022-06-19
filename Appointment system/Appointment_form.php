@@ -2,6 +2,14 @@
 
 include_once("Connections/connection.php");
 $con = connection();
+if(!isset($_SESSION)) {
+  session_start();
+}
+
+if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+  "Welcome ".$_SESSION['Login'];
+}
+
 
 if(isset($_POST['submit'])){
 
@@ -17,8 +25,11 @@ if(isset($_POST['submit'])){
   $POA = $_POST['purpose_of_appoint'];
   $status = $_POST['status'];
 
+$get_date = $con->query("SELECT * FROM stakeholders WHERE date = '$date' ");
+if($get_date->num_rows < 50){
 
-  $get_user = $con->query("SELECT * FROM stakeholders WHERE date = '$date' AND time = '$time' AND email = '$email'");
+  
+$get_user = $con->query("SELECT * FROM stakeholders WHERE date = '$date' AND time = '$time' AND email = '$email'");
   if($get_user->num_rows>0)
   {
     echo "<script type='text/javascript'>alert('Date, Time and Email Are Already Submitted!<br> Try again!!!')
@@ -37,11 +48,17 @@ if(isset($_POST['submit'])){
     window.location.href = 'Dashboard.php';
     </script>"; 
     } else{
-      echo "<script type='text/javascript'>alert('failed!')</script>";
+      echo "<script type='text/javascript'>alert('Failed to Submit!')</script>";
     } 
   }
-}
+}else{
+    echo "<script type='text/javascript'>alert('Failed to Submit!.The date you choose is no longer has a slot to give. Please select a new date. Thank you!')</script>";
+  }
+
+}//end of submit
+
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -67,7 +84,7 @@ if(isset($_POST['submit'])){
             
         <aside class="sidebar" data-sidebar>
           <div class="top-sidebar">
-            <a href="#" class="channel-logo"><img src="picture/urslogo.png" alt="URS Logo" ></a>
+            <a href="#" class="channel-logo"><img src="Picture/urslogo.png" alt="URS Logo" ></a>
             <div class="hidden-sidebar University">University of Rizal System</div>
             <div class="hidden-sidebar Campus">Morong Campus</div>
           </div>
@@ -119,7 +136,7 @@ if(isset($_POST['submit'])){
                         <path fill-rule="evenodd" d="M28 9H16v3a1 1 0 1 1-2 0V9H9a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3v3a1 1 0 1 1-2 0V9Z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M36 18H8v-2h28v2Z" clip-rule="evenodd"/>
                         <path d="M12 7a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Zm14 0a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Z"/></g></svg>
-                  <div class="hidden-sidebar">Appointments Schedule</div>
+                  <div class="hidden-sidebar">Calendar Schedule</div>
                 </a>
               </li>
 
@@ -143,7 +160,7 @@ if(isset($_POST['submit'])){
                       <path fill="currentColor" d="M10 .4C4.697.4.399 4.698.399 10A9.6 9.6 0 0 0 10 19.601c5.301 0 9.6-4.298 9.6-9.601c0-5.302-4.299-9.6-9.6-9.6zm.896 3.466c.936 
                       0 1.211.543 1.211 1.164c0 .775-.62 1.492-1.679 1.492c-.886 0-1.308-.445-1.282-1.182c0-.621.519-1.474 1.75-1.474zM8.498 15.75c-.64 0-1.107-.389-.66-2.094l.733-3.025c.127-.484.148-.678 0-.678c-.191 
                       0-1.022.334-1.512.664l-.319-.523c1.555-1.299 3.343-2.061 4.108-2.061c.64 0 .746.756.427 1.92l-.84 3.18c-.149.562-.085.756.064.756c.192 0 .82-.232 1.438-.719l.362.486c-1.513 1.512-3.162 2.094-3.801 2.094z"/></svg>
-                  <div class="hidden-sidebar">About Us</div>
+                  <div class="hidden-sidebar">About</div>
                 </a>
               </li>
              
@@ -154,7 +171,7 @@ if(isset($_POST['submit'])){
                     37.573c-2.319 3.178-3.845 6.757-3.882 10.693c14.409 55.775 58.117 107.223 96.681 142.603c38.562 35.38 80.009 83.281 133.812 94.629c6.65 1.855 14.797 2.52 19.556-1.903l43.652-44.458c15.068-11.421 36.866-16.956 52.954-7.617h.732l148.021 
                     87.378c21.728 13.619 23.979 39.944 8.423 55.957L849.683 941.016c-15.056 15.44-35.058 20.631-54.491 20.654c-85.948-2.575-167.158-44.759-233.862-88.11c-109.49-79.653-209.923-178.446-272.975-297.803c-24.182-50.05-52.589-113.91-49.878-169.774c.242-21.016 
                     5.928-41.605 20.728-55.151l101.953-101.953c7.942-6.758 15.799-10.111 23.217-10.549z"/></svg>
-                  <div class="hidden-sidebar">Contact Us</div>
+                  <div class="hidden-sidebar">Contact</div>
                 </a>
               </li>  
               <li class="sidebar-list-item">
@@ -164,7 +181,7 @@ if(isset($_POST['submit'])){
                       <path fill="currentColor" d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65
                        0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
                     </svg>
-                  <div class="hidden-sidebar">Copyright 2022</div>
+                  <div class="hidden-sidebar">Appointment <br>System 2022</div>
                 </a>
               </li>
              <!-- <li class="sidebar-list-item">
@@ -218,12 +235,15 @@ if(isset($_POST['submit'])){
           <div class="txt">Appointment Form</div>
           <!-- <div class="col-half" > -->
             <!-- <div class="half"> -->
-
+            <div class="p" style="margin-top:-25px; font-size: 13.5px; color: black" >Please carefully fill out this Appointment Form (to avoid unwanted data) and we will get back to you as soon as possible.</div>
               <h4>Presonal Information</h4>
 
               <div class="input-group" ></div>
-
-              <div class="p" >Name:</div>
+             
+              <div style="display: flex">
+                <div class="p" >Name:</div>
+                <div class="p" >Surname:</div>
+              </div>
               <div class="col-half" >          
                 <input type="text"  name="first_name" placeholder="Ex: José Protacio Y." required />
                 <input type="text"  name="last_name" id="lastname" onchange="updateQrlastname();"  placeholder="Rizal" required />
@@ -241,27 +261,27 @@ if(isset($_POST['submit'])){
 
               <div class="col-half" >
                 <select type="text" name="category" id="category" onchange="updateQrcategory();" placeholder="category" required >
-                  <option value="">Ex: Student</option>
-                  <option value="Student">* Student</option>
-                  <option value="Alumni">* Alumni</option>   
-                  <option value="Professor">* Professor</option>  
-                  <option value="Non-Teaching personnel">* Non-Teaching personnel</option>  
-                  <option value="Parent">* Parent</option>  
+                  <option value="">* Ex: Student</option>
+                  <option value="Student">Student</option>
+                  <option value="Alumni">Alumni</option>   
+                  <option value="Professor">Professor</option>  
+                  <option value="Non-Teaching personnel">Non-Teaching personnel</option>  
+                  <option value="Parent">Parent</option>  
                 </select>
 
                 <!-- <input type="text" name="address"  id="address" onchange="updateQraddress();" placeholder="Address" required /> -->
                 <select type="text" name="address"  id="address" onchange="updateQraddress();" placeholder="Address" required>
-                <option value="">Municipal</option>
-                  <option value="Angono">* Angono</option>
-                  <option value="Antipolo">* Antipolo</option>    
-                  <option value="Binangonan">* Binangonan</option>
-                  <option value="Cainta">* Cainta</option>  
-                  <option value="Cardona">* Cardona</option> 
-                  <option value="Morong">* Morong</option>
-                  <option value="Pililla">* Pililla</option>
-                  <option value="Rodriguez">* Rodriguez</option> 
-                  <option value="Tanay">* Tanay</option>
-                  <option value="Taytay">* Taytay</option>
+                <option value="">* Municipal</option>
+                  <option value="Angono">Angono</option>
+                  <option value="Antipolo">Antipolo</option>    
+                  <option value="Binangonan">Binangonan</option>
+                  <option value="Cainta">Cainta</option>  
+                  <option value="Cardona">Cardona</option> 
+                  <option value="Morong">Morong</option>
+                  <option value="Pililla">Pililla</option>
+                  <option value="Rodriguez">Rodriguez</option> 
+                  <option value="Tanay">Tanay</option>
+                  <option value="Taytay">Taytay</option>
                 </select>
               </div>
 
@@ -293,14 +313,14 @@ if(isset($_POST['submit'])){
                 <input type="date"  name="date" id="date" min="2021-01-01" max="2050-01-01" pattern="mm/dd/yyyy" onchange="updateQrdate();" placeholder="Date of arrival"  required/>
                 <!-- <input type="time"  name="time" id="time" onchange="updateQrtime();" placeholder="Time" required > -->
                 <select type="text"  name="time" id="time" onchange="updateQrtime();" placeholder="Time of arrival" required>
-                <option value="" >Morning / Afternoon</option>
-                    <option value="Morning: 8am - 9am"      >* Morning: 8am - 9am</option>  
-                    <option value="Morning: 9am - 10am"     >* Morning: 9am - 10am</option> 
-                    <option value="Morning: 10am - 11am"    >* Morning: 10am - 11am</option>   
-                    <option value="Afternoon: 1pm - 2pm"    >* Afternoon: 1pm - 2pm</option>  
-                    <option value="Afternoon: 2pm - 3pm"   >* Afternoon: 2pm - 3pm</option>  
-                    <option value="Afternoon: 3pm - 4pm"   >* Afternoon: 3pm - 4pm</option>  
-                    <option value="Afternoon: 4pm - 5pm" >* Afternoon: 4pm - 5pm</option>  
+                <option value="" >* Morning / Afternoon</option>
+                    <option value="Morning: 8am - 9am"      >Morning: 8am - 9am</option>  
+                    <option value="Morning: 9am - 10am"     >Morning: 9am - 10am</option> 
+                    <option value="Morning: 10am - 11am"    >Morning: 10am - 11am</option>   
+                    <option value="Afternoon: 1pm - 2pm"    >Afternoon: 1pm - 2pm</option>  
+                    <option value="Afternoon: 2pm - 3pm"   >Afternoon: 2pm - 3pm</option>  
+                    <option value="Afternoon: 3pm - 4pm"   >Afternoon: 3pm - 4pm</option>  
+                    <option value="Afternoon: 4pm - 5pm" >Afternoon: 4pm - 5pm</option>  
                 </select>
                 
               </div>
@@ -314,15 +334,14 @@ if(isset($_POST['submit'])){
               <div class="col-half" >
 
                 <select type="text" name="office" id="office" onchange="updateQroffice();" placeholder="Office"  required>
-                  <option value="">Office</option>
-                  <option value="Faculty">* Faculty</option>
-                  <option value="Registrar">* Registrar</option>
-                  <option value="Casher">* Casher</option>  
-                  <option value="OSDS">* OSDS</option>  
-                  <option value="Clinic">* Clinic</option>  
-                  <option value="Library">* Library</option>    
-                  
-                  <option value="gymnasium">* Gymnasium</option>     
+                  <option value="">* Office</option>
+                  <option value="Faculty">Faculty</option>
+                  <option value="Registrar">Registrar</option>
+                  <option value="Cashier">Cashier</option>  
+                  <option value="OSDS">OSDS</option>  
+                  <option value="Clinic">Clinic</option>  
+                  <option value="Library">Library</option>    
+                  <option value="Gymnasium">Gymnasium</option>     
                 </select>
 
                 <input disable>
@@ -346,7 +365,7 @@ if(isset($_POST['submit'])){
           <div class="input-group" ></div>
             <button type="submit" class="button" name ="submit" id="submit">Submit
               </button> 
-            <button type="submit" id="Cancel" value="Cancel" onclick="window.location.href='index.html '">Cancel </button> 
+            <button type="submit" id="Cancel" value="Cancel" onclick="window.location.href='index.php '">Cancel </button> 
             <button type="reset" id="Reset" value="Reset">Reset </button> 
           
 

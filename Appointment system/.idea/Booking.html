@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<!--head-->
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment System</title>
+
+
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="../css/index.css">
+</head>
+<!--head ends-->
+<!-- body starts -->
+<body >
+    <div class="Background"></div>
+    <!-- header starts -->  
+      <div class= header>
+        <div class= "topNavBar">
+            <ul>
+            <li> <div id="Home" class="active" onclick="window.location.href='index.html '">Home</div></li>
+            <li> <div id="Booking Guide" class="" onclick="window.location.href='Menu.html '">Booking Guide</div></li>
+            <li> <div id="Projects" class="" onclick="window.location.href='Project.html'"></div></li>                  
+           <div class="logo"></div>  
+            <li> <div id="About Us" class="" onclick="window.location.href='About.html'">About Us</div></li>
+            <li> <div id="Contact us" class="" onclick="window.location.href='Contact.html'">Contacts Us</div></li>
+            <li> <div id="Service" onclick="window.location.href='Service.html'"></div></li>    
+            </ul>
+        </div> 
+      
+        <!-- header ends -->  
+
+        <!-- booking body start-->
+        <div class="BookingBody">     
+          <div class="container">
+            <form id="qrForm" onsubmit="return false;">
+
+              <div class="row">
+
+                <h4>Scheduling Form</h4>
+
+                <div class="input-group" for="dataInput">
+                  <input type="text" onchange="updateQrData();" name="dataInput" id="dataInput" placeholder="First Name"/>
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+                </div>
+
+                <div class="input-group" for="dataInput">
+                  <input type="text" onchange="updateQrlastname();" name="dataInput" id="lastname" placeholder="Last Name"/>
+                  <div class="input-icon"><i class="fa fa-envelope"></i></div>
+                </div>
+                
+                <div class="input-group" for="dataInput">
+                  <input type="email" onchange="updateQrlastname();" name="dataInput" id="email" placeholder="Email Adress"/>
+                  <div class="input-icon"><i class="fa fa-key"></i></div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-half">
+                  <h4>Date of Arrival</h4>
+
+                  <div class="input-group" for="dataInput">
+                    <input type="date" onchange="updateQrdob();" 
+                    name="dataInput" id="doa" placeholder="01/01/2001" required />
+                  </div>
+                </div>
+
+                <div class="col-half">
+                  <h4>Gender</h4>
+                  <div class="input-group">
+                    <input id="gender-male" type="radio" name="gender" value="male"/>
+                    <label for="gender-male">Male</label>
+                    <input id="gender-female" type="radio" name="gender" value="female"/>
+                    <label for="gender-female">Female</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="qrButton">
+                <div class="button" onclick="window.location.href='Qrcode.html'">Generate QR code</div> 
+               
+                
+              </div>
+
+
+            </form>
+            <div class="QRcodeBody">
+                  
+              <div class="button" onclick="download();">Download</div>
+            </div>
+           
+         </div>
+
+         <div id="canvas">
+         
+        </div>
+             
+        </div>    
+    </div>
+
+        <script type="text/javascript" src="../JS/"></script>    
+    </body>
+  <!-- body ends -->
+</html>

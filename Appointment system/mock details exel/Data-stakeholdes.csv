@@ -1,0 +1,21 @@
+id,category,first_name,last_name,address,contact_No,email,date,time,office,purpose_of_appoint,status,todays_date,added_at
+1,Alumni,Abbie,Bollon,Angono,3918725618,abollon0@disqus.com,01/12/2021,Morning,Registrar,consult,Finished ,01/12/2021,01/12/2021
+2,Professor,Hilton,Lovel,Antipolo,1922702056,hlovel1@utexas.edu,01/13/2021,Morning,Registrar,consult,Finished ,01/12/2021,01/12/2021
+3,Non-teaching peronel,Maudie,Tampin,Binangonan,1388560615,mtampin2@mayoclinic.com,01/14/2021,Morning,Registrar,consult,Approved,01/12/2021,01/12/2021
+4,parent,Karon,Swadden,Cainta,4385821690,kswadden3@prweb.com,01/15/2021,Morning,Registrar,consult,Approved,01/12/2021,01/12/2021
+5,Student,Savina,Grewes,Cainta,4121939328,sgrewes4@zdnet.com,01/16/2021,Morning,Registrar,consult,Approved,01/12/2021,01/12/2021
+6,Student,Amandie,Kick,Cardona,8932584400,akick5@home.pl,01/17/2021,Morning,Registrar,consult,Approved,01/13/2021,01/13/2021
+7,Alumni,Alvira,Day,Cardona,702862401,aday6@facebook.com,01/18/2021,Morning,Registrar,consult,Accepted,01/13/2021,01/13/2021
+8,Professor,Caryl,Treadaway,Morong,7570291417,ctreadaway7@cbslocal.com,01/19/2021,Morning,Registrar,consult,Accepted,01/13/2021,01/13/2021
+9,Professor,Lindsey,Kennefick,Morong,5323839899,lkennefick8@jiathis.com,01/20/2021,Morning,Registrar,consult,Accepted,01/13/2021,01/13/2021
+10,Non-teaching peronel,Jimmy,Gregorowicz,Pililla,5677321044,jgregorowicz9@4shared.com,01/21/2021,Morning,Registrar,consult,Accepted,01/13/2021,01/13/2021
+11,Student,Briana,Dohmann,Pililla,80871879,bdohmanna@usnews.com,01/22/2021,Afternoon,Registrar,consult,Pending,01/22/2021,01/22/2021
+12,parent,Nadean,Hearnaman,Rodriguez,7748599335,nhearnamanb@home.pl,01/23/2021,Afternoon,Registrar,consult,Pending,01/22/2021,01/22/2021
+13,Student,Emmett,Cumes,Tanay,7944079969,ecumesc@pcworld.com,01/24/2021,Afternoon,Registrar,consult,Pending,01/22/2021,01/22/2021
+14,parent,Kesley,Lowless,Tanay,9930386602,klowlessd@google.de,01/25/2021,Afternoon,Registrar,consult,Pending,01/22/2021,01/22/2021
+15,Student,Golda,Kochel,Tanay,8355091310,gkochele@list-manage.com,01/26/2021,Afternoon,Registrar,consult,Pending,01/22/2021,01/22/2021
+16,Student,Aridatha,Clabburn,Angono,1346515859,aclabburnf@is.gd,01/27/2021,Afternoon,Registrar,consult,Declined,01/27/2021,01/27/2021
+17,Student,Alika,Rhoades,Antipolo,3467417469,arhoadesg@pinterest.com,01/28/2021,Afternoon,Registrar,consult,Declined,01/27/2021,01/27/2021
+18,Student,Kameko,Beavers,Binangonan,6995272439,kbeaversh@irs.gov,01/29/2021,Afternoon,Registrar,consult,Declined,01/27/2021,01/27/2021
+19,Student,Jasen,Dikles,Cainta,2110914432,jdiklesi@reference.com,01/30/2021,Afternoon,Registrar,consult,Declined,01/27/2021,01/27/2021
+20,Student,Trista,Assender,Angono,5114657399,tassenderj@elpais.com,01/31/2021,Afternoon,Registrar,consult,Declined,01/27/2021,01/27/2021

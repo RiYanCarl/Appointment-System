@@ -1,3 +1,12 @@
+<?php
+if(!isset($_SESSION)) {
+  session_start();
+}
+
+if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+  "Welcome ".$_SESSION['Login'];
+} 
+?>
 <!DOCTYPE html>
 <html>
 <!--head-->
@@ -23,7 +32,7 @@
             
         <aside class="sidebar" data-sidebar>
           <div class="top-sidebar">
-            <a href="#" class="channel-logo"><img src="picture/urslogo.png" alt="URS Logo" ></a>
+            <a href="#" class="channel-logo"><img src="Picture/urslogo.png" alt="URS Logo" ></a>
             <div class="hidden-sidebar University">University of Rizal System</div>
             <div class="hidden-sidebar Campus">Morong Campus</div>
           </div>
@@ -33,7 +42,7 @@
             <ul class="sidebar-list">
 
               <li class="sidebar-list-item active">
-                <a href="#" class="sidebar-link" onclick="window.location.href='index.html '">
+                <a href="#" class="sidebar-link" onclick="window.location.href='index.php '">
                     <svg class="sidebar-icon" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" focusable="false" >
                         <path fill="currentColor" d="M33 19a1 1 0 0 1-.71-.29L18 4.41L3.71 18.71A1 1 0 0 1 2.3 17.3l15-15a1 1 0 0 1 1.41 0l15 15A1 1 0 0 1 33 19Z" class="clr-i-solid clr-i-solid-path-1"/>
                         <path fill="currentColor" d="M18 7.79L6 19.83V32a2 2 0 0 0 2 2h7V24h6v10h7a2 2 0 0 0 2-2V19.76Z" class="clr-i-solid clr-i-solid-path-2"/>
@@ -75,7 +84,7 @@
                         <path fill-rule="evenodd" d="M28 9H16v3a1 1 0 1 1-2 0V9H9a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3v3a1 1 0 1 1-2 0V9Z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M36 18H8v-2h28v2Z" clip-rule="evenodd"/>
                         <path d="M12 7a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Zm14 0a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Z"/></g></svg>
-                  <div class="hidden-sidebar">Appointment Sched</div>
+                  <div class="hidden-sidebar">Calendar Schedule</div>
                 </a>
               </li>
 
@@ -99,7 +108,7 @@
                       <path fill="currentColor" d="M10 .4C4.697.4.399 4.698.399 10A9.6 9.6 0 0 0 10 19.601c5.301 0 9.6-4.298 9.6-9.601c0-5.302-4.299-9.6-9.6-9.6zm.896 3.466c.936 
                       0 1.211.543 1.211 1.164c0 .775-.62 1.492-1.679 1.492c-.886 0-1.308-.445-1.282-1.182c0-.621.519-1.474 1.75-1.474zM8.498 15.75c-.64 0-1.107-.389-.66-2.094l.733-3.025c.127-.484.148-.678 0-.678c-.191 
                       0-1.022.334-1.512.664l-.319-.523c1.555-1.299 3.343-2.061 4.108-2.061c.64 0 .746.756.427 1.92l-.84 3.18c-.149.562-.085.756.064.756c.192 0 .82-.232 1.438-.719l.362.486c-1.513 1.512-3.162 2.094-3.801 2.094z"/></svg>
-                  <div class="hidden-sidebar">About Us</div>
+                  <div class="hidden-sidebar">About</div>
                 </a>
               </li>
              
@@ -110,7 +119,7 @@
                     37.573c-2.319 3.178-3.845 6.757-3.882 10.693c14.409 55.775 58.117 107.223 96.681 142.603c38.562 35.38 80.009 83.281 133.812 94.629c6.65 1.855 14.797 2.52 19.556-1.903l43.652-44.458c15.068-11.421 36.866-16.956 52.954-7.617h.732l148.021 
                     87.378c21.728 13.619 23.979 39.944 8.423 55.957L849.683 941.016c-15.056 15.44-35.058 20.631-54.491 20.654c-85.948-2.575-167.158-44.759-233.862-88.11c-109.49-79.653-209.923-178.446-272.975-297.803c-24.182-50.05-52.589-113.91-49.878-169.774c.242-21.016 
                     5.928-41.605 20.728-55.151l101.953-101.953c7.942-6.758 15.799-10.111 23.217-10.549z"/></svg>
-                  <div class="hidden-sidebar">Contact Us</div>
+                  <div class="hidden-sidebar">Contact</div>
                 </a>
               </li> 
               <li class="sidebar-list-item">
@@ -120,7 +129,7 @@
                       <path fill="currentColor" d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65
                        0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
                     </svg>
-                  <div class="hidden-sidebar">Copyright 2022</div>
+                  <div class="hidden-sidebar">Appointment <br>System 2022</div>
                 </a>
               </li>
              <!-- <li class="sidebar-list-item">
@@ -183,7 +192,7 @@
           
           <div class="container-appoint">
             <div class="text-center mt-5">
-                <div class="txt" >How to make a Appointment?</div>
+                <div class="txt" >How to make a Appointment</div>
              
             </div>
             <div class="txt1">The University will have 50  slots for a day to maximize the number of people going in and out of the university
@@ -236,13 +245,14 @@
                             <div class="icon step4"> </div>
                             <div class="text">Step 4</div>       
                         </div>
-                        <div class="info">Once your appointment is approved, you will receive an email containing the appointment information. Along with this confirmation email, the QR Code that you must present at the time of transaction will also be attached. Make sure to download a copy of the QR code. 
+                        <div class="info">Once your appointment is approved, you will receive an email containing the appointment information. Along with this confirmation email, the QR Code that you must present at the time of arrival at the university will also be attached. Make sure to download a copy of the QR code. 
 
 
                         </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="box">
                     <div class="inside-box">
@@ -255,6 +265,8 @@
                       </div>
                     
                     </div>
+                </div>
+
                     <div class="col-md-4">
                       <div class="box">
                       <div class="inside-box">
@@ -274,12 +286,12 @@
             
             </div>
             <div class="sched">
-              <div class="txt" >Schedule of Officie</div>
+              <div class="txt" >Schedule of Offices</div>
               
               <table>
                 <thead>                 
                     <tr>
-                    <th  >----</th> 
+                    <th  ></th> 
                     <th  class="weeks">Monday</th> 
                     <th  class="weeks">Tuesday</th> 
                     <th  class="weeks">Wednesday</th> 
@@ -411,7 +423,7 @@
                   </tr> 
 
                   </tr>                
-                    <th>Casher</th> 
+                    <th>Cashier</th> 
                           
                     <td>
                       <li>8am - 9am</li> 
@@ -531,7 +543,7 @@
                   </tr>
 
                   <tr> 
-                    <th >Clinis</th>
+                    <th >Clinic</th>
                           
                     <td>
                       <li>8am - 9am</li> 

@@ -1,6 +1,6 @@
 /*office appoint*/
 .container-appoint{
-  background-color: rgba(245, 245, 245, 0.76); /*medjo White */
+  background-color: #ffffff; /*medjo White */
   height: 100%;
   font-family: 'Ubuntu', sans-serif;
   padding: 55px 0 0 0;
@@ -10,6 +10,7 @@
   /* background-color: #D9E4EA; */
   
 }
+
 .txt{
   margin: auto;
   font-family: "Montserrat";
@@ -50,12 +51,13 @@
 
 .our-category {
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px 5px 20px;
   background-color:transparent;
   transition: all .4s ease-in-out;
   width: 320px;
-  padding: 5px;
+  padding: 5px 0 5px 0;
   border: solid 0.5px #000;
+  background-color: #f1f6ff;
 }
 
 .box-txt{
@@ -63,6 +65,8 @@
   width: 100%;
   margin: 0;
   margin-bottom: 10px;
+  border-bottom: solid 1px black;
+  padding-bottom: 3px;
 }
 
 h4{
@@ -87,53 +91,80 @@ h4{
   margin-left: 5px;
   margin-top: -10px;
   box-sizing: border-box;
-  
 }
+
 /* img{
   height: 80px;
   width: 80px;
 } */
+
 .icon-office {
   height: 70px;
   width: 70px;
   text-align: center;
   margin: auto;
 }
+.data-left{
+  float: left;
+  text-align: left;
+
+  margin-left: 15%;
+  margin-bottom:1px;
+}
+.data-right{
+  float: right;
+  text-align: right;
+
+  margin-right: 18%;
+  margin-bottom:1px;
+}
 
 .Faculty {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/workspace.png");
+  background-image: url("../Picture/office.png");
 }
+
 .Registrar {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/building.png");
+  background-image: url("../Picture/company.png");
 }
+
 .Casher {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/cashier.png");
+  background-image: url("../Picture/building (1).png");
 }
+
 .OSDS {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/office-building (1).png");
+  background-image: url("../Picture/office-building.png");
 }
+
 .Clinic {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/clinic.png");
+  background-image: url("../Picture/hospital.png");
 }
+
 .Library {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/book.png");
+  background-image: url("../Picture/book-shop.png");
 }
+
 .Gymnasium {
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url("../Picture/gymnasium.png");
+  background-image: url("../Picture/gym.png");
+}
+
+.Appointment {
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-image: url("../Picture/appointment.png");
 }
 
 .our-category:hover h4,
@@ -144,8 +175,45 @@ h4{
 
 .our-category:hover {
   box-shadow: 0 0 5px 0 #003366;
+  border: solid 1px #003366;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 0 20px 0
 
 }
 
+#button {
+  display: inline-block;
+  background-color: #003366;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #1CA6C8
+}
+#button:active {
+  background-color: #CBEBE9
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}

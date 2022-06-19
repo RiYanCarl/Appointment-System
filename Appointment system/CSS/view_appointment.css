@@ -1,0 +1,236 @@
+.view-appoint{
+	margin: 0;
+	background-color: #ffffff; /*medjo White */
+	font-family: sans-serif;
+	font-weight: 80;
+    box-sizing: border-box;
+	width: 100%;
+	padding: 55px 0 0 0;
+	/* background: #D9E4EA; */
+	/* background-color: rgba(245, 245, 245, 0.76); medjo white */
+}
+
+.txt{
+	margin: auto;
+	font-family: "Montserrat";
+	width: 80%;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 35px;
+	font-weight: 800;
+	color:#003366;
+	padding: 5px 0;
+	border-top:#003366 solid 5px;
+	border-bottom:#003366 solid 5px;
+}
+
+.total{
+	font-size: 35px;
+	font-weight: 800;
+	color:#003366;
+	font-family: "Montserrat";
+	margin: 1% auto;
+
+	text-align: center;
+	height: 50px;
+	width: 20%;
+	/* border-radius: 10px;
+	border: solid 0.5px #000; */
+	/* box-shadow: 0 0 25px 0 rgba(35, 39, 134, 0.445); */
+}
+
+.container-view-appointment{
+	width: 75%;
+	padding: 2em 2em 3em 2em;
+	margin:  1% auto auto auto;
+	background-color: rgb(255, 255, 255); /* Fallback color blue*/
+	background-color: rgba(255, 255, 255, 0.822); /* Black w/opacity/see-through */
+	border-radius: 8px;
+	box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.479);
+	margin-bottom: 5em;	
+	
+
+}
+
+
+table {
+	border-collapse: collapse;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+th,td { 
+	background-color: rgba(255,255,255,0.2);
+	border-bottom: 2px solid rgba(61, 60, 60, 0.144);
+
+}
+td{
+  padding: 7px 5px;
+  width: 50;
+  color:#003366; 
+  text-align: center;
+}
+
+.name{
+	padding-left: 5em;
+	padding-right: 5em;
+	text-align:center;	
+}
+
+tr:nth-child(even) {
+	background-color: #D2DAEC;
+}
+
+th{
+  border-right: 2px solid rgba(236, 236, 236, 0.144);
+  background-color: #1f4972;
+  color: #fff; 
+  height: 50px;
+  max-width: 150px;
+  padding: 0 1% 0 0;
+}
+
+.space{
+  width: 3em;
+}
+
+tr{
+  width: 500px;
+  border: solid balck;
+  transition: all .4s ease-in-out;
+}
+
+.data:hover{
+    background-color:  white;
+	transform: rotate(0) scale(1.05) ;
+	-webkit-filter: drop-shadow(0 10px 10px  rgba(0, 0, 0, 0.70));
+	filter: drop-shadow( 0 0 10px rgba(0, 0, 0, 0.568));
+}
+
+.col-half {
+	display: flex;
+	width: 100%;
+   justify-content: center;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+		-webkit-tap-highlight-color: transparent;
+}
+
+.noselect {
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: #8F8F8F;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+	background: #8C8C8C;
+	margin: auto;
+}
+
+span {
+	transition: 200ms;
+}
+
+.text {
+	transform: translateX(7px);
+	color: white;
+	font-weight: bold;
+}
+
+.icon {
+	position: absolute;
+	border-left: 1px solid #D7D7D7;
+	transform: translateX(45px);
+	height: 30px;
+	width: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;  
+}
+
+span{
+	width: 15px;
+
+}
+
+svg {
+	width: 15px;
+	fill: #eee;
+}
+
+.noselect:hover {
+	background: #8C8C8C;
+}
+
+.noselect:hover .text {
+	color: transparent;
+}
+
+.noselect:hover .icon {
+	width: 70px;
+	border-left: none;
+	transform: translateX(0);
+}
+
+.noselect:focus {
+	outline: none;
+}
+.btn{
+	width: 300px;
+	position: relative;
+
+	display: inline-block;
+	border: solid black;
+}
+
+/* search bar */
+
+.search-con{
+	display: flex; 
+	height: 40px;
+	width: 60%;
+	margin-bottom: 1%;
+	border: 1px gray solid;
+}
+
+input{
+	width: 65%;
+	background-color: #eee;
+	margin:0;	
+	padding-left: 10px;
+	border: none;
+	outline: none;
+}
+
+.search-btn, .refresh-btn{
+	font-family: "Montserrat", sans-serif;
+	border: 2px solid #78788c;
+	background: 0;
+	color: #5a5a6e;
+	cursor: pointer;
+	transition: all 0.3s;
+	width: 20%;
+	border: none;
+	border-left: solid 1px gray;
+}
+
+.search-btn:hover{
+	background-color: #65a5e6;
+	color: rgb(255, 255, 255);
+}
+
+.refresh-btn:hover{
+	background-color: green;
+	color: rgb(255, 255, 255);
+}

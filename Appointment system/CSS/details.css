@@ -8,11 +8,13 @@
 	height: 100%;
 	padding: 55px 0 0 0;
 }
+
 .menu{
 	line-height: 20px;
 	margin-left: 5px;
 	font-size: 13.2px;
-  }
+}
+
 .txt{
 	font-family: "Montserrat";
 	width: 80%;
@@ -27,6 +29,7 @@
 	border-bottom:#003366 solid 5px;
 	margin: auto auto 3% auto;
 }
+
 .form{
 	width: 80%;
 	padding: 1em 3em 1.5em 3em;
@@ -36,6 +39,7 @@
 	border-radius: 8px;
 	box-shadow: 0 0 40px -10px #000;
 }
+
 table {
 	border-collapse:separate;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -57,6 +61,7 @@ td{
 	width: 50;
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
+
 th{
 	border-right: 2px solid rgba(236, 236, 236, 0.144);
 	background-color: #1f4972;
@@ -65,22 +70,26 @@ th{
 	width: 150px;
 	padding: 0 1.5% 0 0;
 	color: #fff;
-	}
+}
+
 .space{
 	width: 3em;
-	}
+}
 
 tr:hover {
 	background-color:  #65a5e6;
 }
+
 .space{
   width: 3em;
 }
+
 .col-half {
 	display: flex;
 	width: 100%;
 	justify-content: center;
 }
+
 .btn{
 	width: 430px;
 	display: flex;
@@ -89,6 +98,7 @@ tr:hover {
 	right: 200px; */
 	margin: 0 0 1% 10%;	
 }
+
 .noselect {
   -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -98,6 +108,7 @@ tr:hover {
             user-select: none;
 		-webkit-tap-highlight-color: transparent;
 }
+
 button {
 	width: 100px;
 	height: 30px;
@@ -114,6 +125,7 @@ button {
 	box-sizing: border-box;
 
 }
+
 button, button span {
 	transition: 200ms;
 }
@@ -135,10 +147,12 @@ button .icon {
 	justify-content: center;  
 	margin-left: 8px;
 }
+
 span.ed, .qr{
 	width: 20px;
 	padding-left: 8px;
 }
+
 button svg {
 	width: 20px;
 	fill: #eee;
@@ -165,23 +179,79 @@ button:hover.edit{
 
 
 }
+
 button:hover.back{
 	background-color: rgb(41, 193, 231);
 }
-button:hover.delete{
-  	background-color: red;
-	  
-}
 
+button:hover.delete{
+  	background-color: red;	  
+}
 
 input{
  width: 100px;
  height: 25px;
  margin-left: 14%;
- text-align: center !important;
- 
+ text-align: center !important; 
+}
 
-
+.txt-QR{
+	margin:  2% auto 2% auto;
+	font-family: "Montserrat";
+	width: 95%;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	font-weight: 800;
+	color:#003366;
+	padding: 5px 0;
+	border:#003366 solid 3px;
 
 }
 
+.pop-up{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background-color: rgb(255, 255, 255); /* Fallback color blue*/
+	background-color: rgba(255, 255, 255, 0.596); /* Black w/opacity/see-through */
+}
+  
+  .Deleteform{
+	width: 400px;
+	height: 220px;
+	box-shadow: 0 0 40px -10px #000;
+	text-align: center;
+	align-items: center;
+	margin: auto;
+	padding-top: 2%;
+	margin-top: 15%;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.note{
+	text-transform: uppercase;
+	font-size: 12px;
+	font-family: "Montserrat"; 
+}
+
+.btn-delete{
+	width: auto;
+	float: right;
+	padding: 8px 12px;
+	margin: 10px 10px;
+	font-family: "Montserrat", sans-serif;
+	border: 2px solid #78788c;
+	background: 0;
+	color: #5a5a6e;
+	cursor: pointer;
+	transition: all 0.3s;
+	font-size: 13px;
+}

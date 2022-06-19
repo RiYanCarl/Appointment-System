@@ -58,11 +58,13 @@ h1 {
   margin: 30px 0;
   
 }
+
 .menu{
   line-height: 20px;
   margin-left: 5px;
   cursor: pointer;
 }
+
 .menu-icon-btn {
   background: none;
   border: none;
@@ -98,7 +100,8 @@ h1 {
   transition: width var(--animation-duration) var(--animation-timing-curve);
   position: sticky;
   left: 0;
-  top: var(--header-height); background-color: #003366;
+  top: var(--header-height);
+   background-color: #0F3653;
 }
 
 .sidebar .hidden-sidebar {
@@ -121,19 +124,27 @@ h1 {
 
 .sidebar .channel-logo {
   display: block;
-  width: 30px;
-  height: 40px;
+  width: 45px;
+  height: 55px;
   transition: var(--animation-duration) var(--animation-timing-curve);
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 15px -5px white;
+  -moz-box-shadow:  0 0 15px -5px white;
+       box-shadow:0 2px 3px 0 white;
+  border-radius: 38px;
 }
 
 .sidebar.open .channel-logo {
-  width: 80px;
-  height: 100px;
+  width: 85px;
+  height: 105px;
+
 }
 
 .sidebar .channel-logo > img {
-  width: 100%;
-  height: 100%;
+  width: 97%;
+  height: 97%;
+  margin:1.5%;  
+
 }
 
 /*hover show sidebar*/
@@ -153,7 +164,7 @@ h1 {
   overflow-y: auto;
   overflow-x: hidden;
   flex-grow: 1;
-  margin: 2rem 0;
+  margin: 2.7rem 0;
   box-sizing: border-box;
 }
 
@@ -213,11 +224,11 @@ h1 {
 
 .sidebar-list-item.active {
   fill: var(--accent-color);
-  background-color: #0095E0;
+  background-color: #1CA6C8;
 }
 
 .sidebar-list-item:hover {
-  background-color: #0095E0;
+  background-color: #1CA6C8;
 }
 
 .sidebar-list-item.active::before {
@@ -260,9 +271,11 @@ h1 {
   text-align: center;
   width: 100%;
 } 
+
 .admin{
   fill: #E5E4DE;
 }
+
 li{
   padding-bottom: 2px;
 }
@@ -271,8 +284,9 @@ li{
 /*main body */
 .MainBody{
   width: 100%; 
-  background-color: rgba(245, 245, 245, 0.76); /*medjo White */
+ 
 }
+
 .Top-container{
   display: flex;
   width: 100%;
@@ -280,13 +294,17 @@ li{
   background-image: url("../Picture/urs1.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-position: 50% 50%;
   height: auto;
+  background-color: #ffffff;
 }
+
 .HomeTitle{
   margin-left: 2%;
   text-align:center;
   width: 40%;
 }
+
 .text1 {
   font-family:Marker Felt, fantasy;
   font-size: 80px;
@@ -295,6 +313,7 @@ li{
   text-shadow:  1px  1px 2px  #000000;
   text-align: center;
 }
+
 .text2{
   padding:0;
   line-height: 45px;
@@ -304,11 +323,13 @@ li{
   text-shadow:  4px  1px 3px  #000000;
   text-align: center;
 }
+
 .appoint-button{
   width:300px;
   margin: 20% auto auto auto ;
  
 }
+
 .appoint-button-view{
   width: 300px;
   height: fit-content;
@@ -323,19 +344,23 @@ li{
   box-shadow:2px 2px #888888;
   display: flex;
 }
+
 .appoint-button-view:hover {background-color: #0095E0
 }
+
 .appoint-button-view:active {
   background-color: #0095E0;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
 /* .right-side-logo{
   border: rgb(56, 36, 230) solid ;
   width: 200px;
   height: 200px;
   margin-top: 300px;
 } */
+
 .appoint-button-view img{
   width: 60px;
   height: 60px;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--head-->
+<head>
+    <title>Client Details</title>
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<!--head ends-->
+<!-- body starts -->
+<body >
+    <div class="Background"></div>
+    <!-- header starts -->  
+    <div class= header>
+        <div class= "topNavBar">
+            <ul>
+            <li> <div id="Home" class="active" onclick="window.location.href='index.html '">Home</div></li>
+            <li> <div id="Booking Guide" class="" onclick="window.location.href='Menu.html '">Booking Guide</div></li>
+            <li> <div id="Projects" class="" onclick="window.location.href='Project.html'"></div></li>                  
+           <div class="logo"></div>  
+            <li> <div id="About Us" class="" onclick="window.location.href='About.html'">About Us</div></li>
+            <li> <div id="Contact us" class="" onclick="window.location.href='Contact.html'">Contacts Us</div></li>
+            <li> <div id="Service" onclick="window.location.href='Service.html'"></div></li>    
+            </ul>
+        </div> 
+    </div>
+    <!-- header ends -->  
+    <!-- booking body start-->
+    <div class="QRcodeBody">
+        <div id="canvas"></div>
+        <div class="button" onclick="download();">Download</div>
+       
+    </div>
+
+    
+</body>
+<!-- body ends -->
+</html>

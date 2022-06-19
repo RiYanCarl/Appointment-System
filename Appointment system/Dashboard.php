@@ -1,15 +1,26 @@
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var index = 0;
+        setInterval(function() {
+            $(".row").load("Dashboard_body.php ");
+            index = index + 1;
+            console.log(index + ' update');
+        }, 1000);
+    });
+</script> -->
+
 <?php
 
 include_once("Connections/connection.php");
 $con = connection();
-if(!isset($_SESSION)) {
-  session_start();
-}
+// if(!isset($_SESSION)) {
+//   session_start();
+// }
 
-if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
-  "Welcome ".$_SESSION['Login'];
-}
-
+// if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+//   "Welcome ".$_SESSION['Login'];
+// }
 // $sql = "SELECT * FROM stakeholders ORDER BY id DESC";
 // $client = $con->query($sql);
 // $row = $client->fetch_assoc();
@@ -21,6 +32,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
 <!--head-->
 <head>
     <title>Dashboard</title>
+    
     <link rel="stylesheet" type="text/css" href="CSS/index.css"></link>
     <link rel="stylesheet" type="text/css" href="CSS/dashboard.css"></link>
     <link rel="stylesheet" type="text/css" href="CSS/view_appointment.css"></link>
@@ -42,7 +54,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
             
         <aside class="sidebar" data-sidebar>
           <div class="top-sidebar">
-            <a href="#" class="channel-logo"><img src="picture/urslogo.png" alt="URS Logo" ></a>
+            <a href="#" class="channel-logo"><img src="Picture/urslogo.png" alt="URS Logo" ></a>
             <div class="hidden-sidebar University">University of Rizal System</div>
             <div class="hidden-sidebar Campus">Morong Campus</div>
           </div>
@@ -94,7 +106,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                         <path fill-rule="evenodd" d="M28 9H16v3a1 1 0 1 1-2 0V9H9a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3v3a1 1 0 1 1-2 0V9Z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M36 18H8v-2h28v2Z" clip-rule="evenodd"/>
                         <path d="M12 7a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Zm14 0a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Z"/></g></svg>
-                  <div class="hidden-sidebar">Appointments Schedule</div>
+                  <div class="hidden-sidebar">Calendar Schedule</div>
                 </a>
               </li>
 
@@ -118,7 +130,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                       <path fill="currentColor" d="M10 .4C4.697.4.399 4.698.399 10A9.6 9.6 0 0 0 10 19.601c5.301 0 9.6-4.298 9.6-9.601c0-5.302-4.299-9.6-9.6-9.6zm.896 3.466c.936 
                       0 1.211.543 1.211 1.164c0 .775-.62 1.492-1.679 1.492c-.886 0-1.308-.445-1.282-1.182c0-.621.519-1.474 1.75-1.474zM8.498 15.75c-.64 0-1.107-.389-.66-2.094l.733-3.025c.127-.484.148-.678 0-.678c-.191 
                       0-1.022.334-1.512.664l-.319-.523c1.555-1.299 3.343-2.061 4.108-2.061c.64 0 .746.756.427 1.92l-.84 3.18c-.149.562-.085.756.064.756c.192 0 .82-.232 1.438-.719l.362.486c-1.513 1.512-3.162 2.094-3.801 2.094z"/></svg>
-                  <div class="hidden-sidebar">About Us</div>
+                  <div class="hidden-sidebar">About</div>
                 </a>
               </li>
              
@@ -129,7 +141,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                     37.573c-2.319 3.178-3.845 6.757-3.882 10.693c14.409 55.775 58.117 107.223 96.681 142.603c38.562 35.38 80.009 83.281 133.812 94.629c6.65 1.855 14.797 2.52 19.556-1.903l43.652-44.458c15.068-11.421 36.866-16.956 52.954-7.617h.732l148.021 
                     87.378c21.728 13.619 23.979 39.944 8.423 55.957L849.683 941.016c-15.056 15.44-35.058 20.631-54.491 20.654c-85.948-2.575-167.158-44.759-233.862-88.11c-109.49-79.653-209.923-178.446-272.975-297.803c-24.182-50.05-52.589-113.91-49.878-169.774c.242-21.016 
                     5.928-41.605 20.728-55.151l101.953-101.953c7.942-6.758 15.799-10.111 23.217-10.549z"/></svg>
-                  <div class="hidden-sidebar">Contact Us</div>
+                  <div class="hidden-sidebar">Contact</div>
                 </a>
               </li> 
               <li class="sidebar-list-item">
@@ -139,7 +151,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                       <path fill="currentColor" d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65
                        0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
                     </svg>
-                  <div class="hidden-sidebar">Copyright 2022</div>
+                  <div class="hidden-sidebar">Appointment <br>System 2022</div>
                 </a>
               </li>
              <!-- <li class="sidebar-list-item">
@@ -188,211 +200,291 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
         <div class="MainBody">   
           <div class="container-appoint">
           <div class="text-center mt-5">
-              <div class="txt">Offices Appointment</div>
+              <div class="txt">Office Appointments </div>
           </div>
           <div class="row">
 
-              <div class="col-md-4 " onclick="window.location.href='Faculty_appointment_list.php'">
-                  
-                      <div class="our-category ">
-                          <div class="icon-office Faculty"></div>
-                          <br><div class="box-txt"> <h4> <span > <?Php
-                          
-                                if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Faculty'")){
+              <div class="col-md-4 " onclick="window.location.href='Faculty_appointment_list.php'">               
+                  <div class="our-category ">
+                      <div class="icon-office Faculty"></div>
+                        <br><div class="box-txt"> <h4> <span > <?Php
+                        
+                              if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Faculty'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
-                              <?Php  }
-                                  // while ($row = $stmt->fetch_assoc()) {
-                                  //   // echo $row['status']."<br>";
-                                  // }
-                                }else{
-                                  echo $connection->error;
-                                }
-                                ?></span> Faculty  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Faculty' ")){
-                                echo "Total Appointment: ".$stmt->num_rows;
+                                if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                 if($stmt->num_rows >0){ ?>
+                                <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                <?Php  } else{}?>
+                                
+                            <?Php  }
+                                // while ($row = $stmt->fetch_assoc()) {
+                                //   // echo $row['status']."<br>";
+                                // }
                               }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
-                 
+                                echo $connection->error;
+                              }
+                              ?></span> Faculty  </h4></div> 
+                              <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Faculty' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Faculty' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Faculty' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Faculty' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
+                    </div>                
               </div>
 
-              <div class="col-md-4" onclick="window.location.href='Registrar_appointment_list.php'">
-                  <div class="box">
+              <div class="col-md-4" onclick="window.location.href='Registrar_appointment_list.php'">               
                       <div class="our-category ">
                           <div class="icon-office Registrar"></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Registrar'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                                    <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }                               
                                 }else{
                                   echo $connection->error;
                                 }
                                 ?></span> Registrar  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Registrar'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }?>
-                      </div> 
+                             <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Registrar' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Registrar' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Registrar' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Registrar' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
 
          
 
-              <div class="col-md-4" onclick="window.location.href='Casher_appointment_list.php'">
-                  <div class="box">
+              <div class="col-md-4" onclick="window.location.href='Casher_appointment_list.php'">               
                       <div class="our-category ">
                           <div class="icon-office Casher"></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Casher'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }
-                                  // while ($row = $stmt->fetch_assoc()) {
-                                  //   // echo $row['status']."<br>";
-                                  // }
+                                
                                 }else{
                                   echo $connection->error;
                                 }
-                                ?></span> Casher  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Casher'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
+                                ?></span> Cashier  </h4></div>
+                               <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Casher' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Casher' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Casher' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Casher' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
 
               
               <div class="col-md-4" onclick="window.location.href='OSDS_appointment_list.php'">
-                  <div class="box">
                       <div class="our-category">
                           <div class="icon-office OSDS "></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'OSDS'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }
-                                  // while ($row = $stmt->fetch_assoc()) {
-                                  //   // echo $row['status']."<br>";
-                                  // }
+                           
                                 }else{
                                   echo $connection->error;
                                 }
                                 ?></span> OSDS  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'OSDS'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
+                                <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'OSDS' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'OSDS' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'OSDS' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'OSDS' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
 
               <div class="col-md-4" onclick="window.location.href='Clinic_appointment_list.php'">
-                  <div class="box">
                       <div class="our-category">
                           <div class="icon-office Clinic"></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Clinic'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }
 
                                 }else{
                                   echo $connection->error;
                                 }
                                 ?></span> Clinic  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Clinic'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
+                                <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Clinic' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Clinic' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Clinic' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Clinic' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
+
               <div class="col-md-4" onclick="window.location.href='Library_appointment_list.php'">
-                  <div class="box">
                       <div class="our-category ">
                           <div class="icon-office Library"></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Library'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }
-                                  // while ($row = $stmt->fetch_assoc()) {
-                                  //   // echo $row['status']."<br>";
-                                  // }
+                            
                                 }else{
                                   echo $connection->error;
                                 }
                                 ?></span> Library  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Library'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
+                                <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Library' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Library' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Library' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Library' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
               
               <div class="col-md-4" onclick="window.location.href='Gym_appointment_list.php'">
-                  <div class="box">
                       <div class="our-category ">
                           <div class="icon-office Gymnasium"></div>
                           <br><div class="box-txt"> <h4> <span > <?Php
                                 if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending' AND office = 'Gymnasium'")){
 
-                                  if($stmt->num_rows >0){ ?>
-                              <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
                               <?Php  }
-                                  // while ($row = $stmt->fetch_assoc()) {
-                                  //   // echo $row['status']."<br>";
-                                  // }
+                              
                                 }else{
                                   echo $connection->error;
                                 }
                                 ?></span> Gymnasium  </h4></div>
-                                <?Php
-                               if($stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Gymnasium'")){
-                                echo "Total Appointment: ".$stmt->num_rows;
-                              }else{
-                              echo $connection->error;
-                              }                            
-                                ?>
-                      </div>
+                                <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE office = 'Gymnasium' ");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' AND office = 'Gymnasium' ");
+                              echo "    Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved' AND office = 'Gymnasium' ");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show' AND office = 'Gymnasium' ");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
+                  </div>
+              </div>
+
+              <div class="col-md-4" onclick="window.location.href='Appointment_list.php'">
+
+                  <div class="our-category ">
+                              <div class="icon-office Appointment"></div>
+                              <br><div class="box-txt"> <h4> <span ><?Php
+                                if($stmt = $con->query("SELECT *FROM stakeholders WHERE status = 'Pending'")){
+
+                                  if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
+                                    if($stmt->num_rows >0){ ?>
+                                   <div class="Notif"><?Php echo "".$stmt->num_rows; ?></div> 
+                                   <?Php  } else{}?>
+                              <?Php  }
+                             
+                                }else{
+                                  echo $connection->error;
+                                }
+                                ?></span> ALL APPOINTMENTS  </h4></div>
+                               
+                              <div>   <div class="data-left" style="padding-left: 10%;"> <?Php                      
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE id");
+                              echo "   Total: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'DONE' ");
+                              echo "Done: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-right">  <?php
+                            $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'Approved'");
+                              echo "  Ongoing: ".$stmt->num_rows;
+                              ?>   </div>  <div class="data-left">  <?php
+                              
+                              $stmt = $con->query("SELECT office FROM stakeholders WHERE status = 'No Show'");
+                              echo "No Show: ".$stmt->num_rows;                                                   
+                              ?></div></div>
                   </div>
               </div>
           </div>
+          
 
 
           <!-- start to view -->
           <div class="view-appoint">   
-              <div class="txt">List of Appointments as of <?Php   echo $curdate = date('M d Y'); ?></div>
+              <div class="txt">List of Appointments as of <?Php date_default_timezone_set('Asia/Manila');  echo $curdate = date('F j, Y'); ?></div>
                     <div class="total">
                        <?Php
-                      $curdate = date('Y-m-d');
+                     date_default_timezone_set('Asia/Manila'); $curdate = date('Y-m-d');
                     if($stmt = $con->query("SELECT * FROM stakeholders WHERE date = '$curdate'")){
                    echo "Total: ".$stmt->num_rows;
                   }else{
@@ -402,6 +494,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
               
 
               <div class="container-view-appointment">
+                 <!-- search -->
                 <div style="Color: rgb(255, 255, 255); Display: none">
                 <?php
                 $search = "";
@@ -410,15 +503,16 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
 
                      $curdate = date('Y-m-d');
                   
-                   $sql = "SELECT * FROM stakeholders WHERE date = '$curdate'";
+                  
+                    $sql= "SELECT * FROM stakeholders WHERE date = '$curdate' ORDER BY office ASC ";
                 
                     // $sql = "SELECT  * FROM stakeholders ORDER BY id DESC";Apr 21 2022
                    // $sql = "SELECT  * FROM stakeholders WHERE  date = '2022-04-21'";
                
                 }else{
                   if($search = $_GET['search']){ 
-                   
-                  $sql = "SELECT * FROM stakeholders WHERE 
+                    $curdate = date('Y-m-d');
+                  $sql = "SELECT * FROM stakeholders WHERE date = '$curdate' AND
                                                          first_name LIKE  '%$search%' OR
                                                           last_name LIKE  '%$search%' OR 
                                                           -- category LIKE  '%$search%' OR 
@@ -427,7 +521,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                                                           -- email LIKE  '%$search%' OR 
                                                           date LIKE  '%$search%' OR 
                                                           time LIKE  '%$search%' OR 
-                                                          -- office LIKE  '%$search%' OR 
+                                                          office LIKE  '%$search%' OR 
                                                           -- purpose_of_appoint LIKE  '%$search%' OR 
                                                           status LIKE  '%$search%' OR
                                                             id LIKE  '%$search%'  ORDER BY id";
@@ -447,10 +541,10 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                
                   
 
-                    <form action="" method="get">
+                    <form action="#form" method="get" onsubmit="return submitTimer.idle();">
 
                     <div class="search-con">
-                      <input type="text" name="search" id="search" placeholder="Search">
+                    <input type="text" name="search" id="search" placeholder="Search 'Surname'">
                       <button type="submit" class="search-btn"  onclick="changeTxt()" id="changetxt" >Search</button>
                       <button type="refresh" class="refresh-btn"   >Refresh</button>
                     </div>
@@ -459,31 +553,24 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                   
                   
                   </form>
-                  <!-- Search Bar -->
+                  <!-- end Search Bar -->
                     <thead>
-                      <tr>
-                        <th>Details</th>
-                        <th>Entry ID</th>
+                      <tr >
+
+                        <th> Entry ID</th>
                         <th Class="name"> Name    </th>
                         <th>Date of arrival</th>
                         <th>Time of arrival</th>
                         <th>Office</th>
                         <th>Status</th>
+                        <th>Changes</th>
                       
                       </tr>              
                     </thead>
                     <tbody>
                     <?php do{?>
-                      <tr>  
-                           
-                        <td Class="details"> 
-                          <button class="noselect" onclick="window.location.href='Details.php?ID=<?php echo $row['id'];?>'"><span class='text'>View</span>
-                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em"
-                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><circle cx="16" cy="16" r="4" />
-                        <path d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 
-                        .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68ZM16 22.5a6.5 6.5 0 
-                        1 1 6.5-6.5a6.51 6.51 0 0 1-6.5 6.5Z"/></svg></span></button>
-                        </td>
+                      <tr class="data"> 
+                       
                         <td> <?php echo $row['id'];?> </td>
                         <td Class="tdname"> <?php echo $row['first_name'];?>
                             <?php echo $row['last_name'];?></td>
@@ -495,6 +582,14 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                         <td> <?php echo $row['time'];?></td>
                         <td> <?php echo $row['office'];?></td>
                         <td> <?php echo $row['status'];?></td>
+
+                        <td Class="details"> 
+                        <button class="noselect" onclick="window.location.href='Login_entry.php?ID=<?php echo $row['id'];?>'"><span class='text'>Edit</span>
+                        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" 
+                          preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path  d="m18.988 2.012l3 3L19.701
+                          7.3l-3-3zM8 16h3l7.287-7.287l-3-3L8 13z"/><path d="M19 19H8.158c-.026 0-.053.01-.079.01c-.033 
+                          0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"/></svg></span></button>
+                        </td>
                       </tr>
                     <?php }while($row = $client->fetch_assoc()); ?>
                       

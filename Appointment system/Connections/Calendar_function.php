@@ -1,4 +1,3 @@
-
 <?php
 
 // Include the database config file 
@@ -27,14 +26,14 @@ if(isset($_POST['func']) && !empty($_POST['func'])){
 function getCalender($year = '', $month = ''){ 
     $dateYear = ($year != '')?$year:date("Y"); 
     $dateMonth = ($month != '')?$month:date("m"); 
-    $date = $dateYear.'-'.$dateMonth.'-01'; 
+    $date = $dateYear.'-'.$dateMonth.'-02'; 
     $currentMonthFirstDay = date("N",strtotime($date)); 
     $totalDaysOfMonth = cal_days_in_month(CAL_GREGORIAN,$dateMonth,$dateYear); 
     $totalDaysOfMonthDisplay = ($currentMonthFirstDay == 1)?($totalDaysOfMonth):($totalDaysOfMonth + ($currentMonthFirstDay - 1)); 
     $boxDisplay = ($totalDaysOfMonthDisplay <= 35)?35:42; 
      
     $prevMonth = date("m", strtotime('-1 month', strtotime($date))); 
-    $prevYear = date("Y", strtotime('-1 month', strtotime($date))); 
+    $prevYear = date("Y", strtotime('-1 Year', strtotime($date))); 
     $totalDaysOfMonth_Prev = cal_days_in_month(CAL_GREGORIAN, $prevMonth, $prevYear); 
 ?> 
 
@@ -45,6 +44,7 @@ function getCalender($year = '', $month = ''){
                 <select class="month-dropdown"> 
                     <?php echo getMonthList($dateMonth); ?> 
                 </select> 
+                
             </div> 
             <div class="title-bar__year"> 
                 <select class="year-dropdown"> 
@@ -59,14 +59,15 @@ function getCalender($year = '', $month = ''){
         </aside> 
          
         <section class="calendar__days"> 
-            <section class="calendar__top-bar"> 
+            <section class="calendar__top-bar">  
+                <span class="top-bar__days" style="color:red ">Sun</span> 
                 <span class="top-bar__days">Mon</span> 
                 <span class="top-bar__days">Tue</span> 
                 <span class="top-bar__days">Wed</span> 
                 <span class="top-bar__days">Thu</span> 
                 <span class="top-bar__days">Fri</span> 
-                <span class="top-bar__days">Sat</span> 
-                <span class="top-bar__days">Sun</span> 
+                <span class="top-bar__days" style="color:red ">Sat</span> 
+               
             </section> 
              
             <?php  
@@ -78,11 +79,12 @@ function getCalender($year = '', $month = ''){
                     if(($cb >= $currentMonthFirstDay || $currentMonthFirstDay == 1) && $cb <= ($totalDaysOfMonthDisplay)){ 
                         // Current date 
                         $currentDate = $dateYear.'-'.$dateMonth.'-'.$dayCount; 
-                         
+                        $curdate = date('Y-m-d');
+                        date_default_timezone_set('Asia/Manila');
                         // Get number of events based on the current date 
                         include_once("connection.php");
                         $con = connection();
-                        $result = $con->query("SELECT *FROM stakeholders WHERE date = '".$currentDate."' AND  status = 'Pending'" ); 
+                        $result = $con->query("SELECT *FROM stakeholders WHERE date = '".$currentDate."'" ); 
 
                         $eventNum = $result->num_rows; 
                          
@@ -91,21 +93,21 @@ function getCalender($year = '', $month = ''){
                             echo ' 
                           <div class="calendar__day today" onclick="getEvents(\''.$currentDate.'\');"> 
                                     <span class="calendar__date">'.$dayCount.'</span> 
-                                    <span class="calendar__task calendar__task--today">'.$eventNum.' appointment</span> 
+                                    <span class="calendar__task calendar__task--today">'.$eventNum.' Appointment</span> 
                                 </div> 
                             '; 
                         }elseif($eventNum > 0){ 
                             echo ' 
                                 <div class="calendar__day event" onclick="getEvents(\''.$currentDate.'\');"> 
                                     <span class="calendar__date">'.$dayCount.'</span> 
-                                    <span class="calendar__task">'.$eventNum.'  Schedule</span> 
+                                    <span class="calendar__task">'.$eventNum.'  Appointment</span> 
                                 </div> 
                             '; 
                         }else{ 
                             echo ' 
-                                <div class="calendar__day no-event" onclick="" onclick="getEvents(\''.$currentDate.'\');"> 
+                                <div class="calendar__day no-event"  onclick="getEvents(\''.$currentDate.'\');"> 
                                     <span class="calendar__date">'.$dayCount.'</span> 
-                                    <span class="calendar__task">'.$eventNum.'  Schedule</span> 
+                                    <span class="calendar__task">'.$eventNum.'  Appointment</span> 
                                 </div> 
                             '; 
                         } 
@@ -136,7 +138,7 @@ function getCalender($year = '', $month = ''){
         function getCalendar(target_div, year, month){ 
             $.ajax({ 
                 type:'POST', 
-                url:'./Connections/Calendar_function.php',  //the problem is here all code is fine
+                url:'./Connections/Calendar_function.php', 
                 data:'func=getCalender&year='+year+'&month='+month, 
                 success:function(html){ 
                     $('#'+target_div).html(html); 
@@ -147,7 +149,7 @@ function getCalender($year = '', $month = ''){
         function getEvents(date){ 
             $.ajax({ 
                 type:'POST', 
-                url:'./Connections/Calendar_function.php',  //the problem is here all code is fine
+                url:'./Connections/Calendar_function.php',  
                 data:'func=getEvents&date='+date, 
                 success:function(html){ 
                     $('#event_list').html(html); 
@@ -202,23 +204,25 @@ function getYearList($selected = ''){
 function getEvents($date = ''){ 
     $date = $date?$date:date("Y-m-d"); 
      
-    $eventListHTML = '<h2 class="sidebar__heading">'.date("l", strtotime($date)).'<br>'.date("F d", strtotime($date)).'</h2>'; 
+    $eventListHTML = '<h2 class="sidebar__heading">'.date("l", strtotime($date)).'<br>'.date("F d, Y", strtotime($date)).'</h2>'; 
      
     // Fetch events based on the specific date 
     include_once("connection.php");
     $con = connection();
-    $result = $con->query("SELECT *FROM stakeholders WHERE date = '".$date."' AND status = 'Pending'" ); 
+  
+    $result = $con->query("SELECT * FROM stakeholders WHERE date = '".$date."' ORDER BY office ASC "); 
+   
 
     if($result->num_rows > 0){ 
         $eventListHTML .= '<ul class="sidebar__list">'; 
-        $eventListHTML .= '<li class="sidebar__list-item sidebar__list-item--complete">Schedule</li>'; 
+        $eventListHTML .= '<li class="sidebar__list-item sidebar__list-item--complete">Appointment Schedules</li>'; 
         $i=0; 
         while($row = $result->fetch_assoc()){ $i++; 
-            $eventListHTML .= '<li class="sidebar__list-item"><span class="list-item__time">'.$i.'.</span> No. ' .$row['id']. ' - ' .$row['time'].'</li>'; 
+            $eventListHTML .= '<li class="sidebar__list-item"><span class="list-item__time">'.$i.'.</span> No. ' .$row['id']. ' | ' .$row['office']. ' - ' .$row['time'].'</li>'; 
         } 
         $eventListHTML .= '</ul>'; 
     } 
     echo $eventListHTML; 
 }
 
-?>
+?> 

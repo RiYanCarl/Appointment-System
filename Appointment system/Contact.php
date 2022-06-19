@@ -18,7 +18,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
 <html>
 <!--head-->
 <head>
-    <title>Dashboard</title>
+    <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="CSS/index.css"></link>
     <link rel="stylesheet" type="text/css" href="CSS/contact.css"></link>
      <script type="text/javascript" src="website.js"  defer></script>
@@ -39,7 +39,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
             
         <aside class="sidebar" data-sidebar>
           <div class="top-sidebar">
-            <a href="#" class="channel-logo"><img src="picture/urslogo.png" alt="URS Logo" ></a>
+            <a href="#" class="channel-logo"><img src="Picture/urslogo.png" alt="URS Logo" ></a>
             <div class="hidden-sidebar University">University of Rizal System</div>
             <div class="hidden-sidebar Campus">Morong Campus</div>
           </div>
@@ -91,7 +91,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                         <path fill-rule="evenodd" d="M28 9H16v3a1 1 0 1 1-2 0V9H9a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2h-3v3a1 1 0 1 1-2 0V9Z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M36 18H8v-2h28v2Z" clip-rule="evenodd"/>
                         <path d="M12 7a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Zm14 0a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V7Z"/></g></svg>
-                  <div class="hidden-sidebar">Appointments Schedule</div>
+                  <div class="hidden-sidebar">Calendar Schedule</div>
                 </a>
               </li>
 
@@ -115,7 +115,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                       <path fill="currentColor" d="M10 .4C4.697.4.399 4.698.399 10A9.6 9.6 0 0 0 10 19.601c5.301 0 9.6-4.298 9.6-9.601c0-5.302-4.299-9.6-9.6-9.6zm.896 3.466c.936 
                       0 1.211.543 1.211 1.164c0 .775-.62 1.492-1.679 1.492c-.886 0-1.308-.445-1.282-1.182c0-.621.519-1.474 1.75-1.474zM8.498 15.75c-.64 0-1.107-.389-.66-2.094l.733-3.025c.127-.484.148-.678 0-.678c-.191 
                       0-1.022.334-1.512.664l-.319-.523c1.555-1.299 3.343-2.061 4.108-2.061c.64 0 .746.756.427 1.92l-.84 3.18c-.149.562-.085.756.064.756c.192 0 .82-.232 1.438-.719l.362.486c-1.513 1.512-3.162 2.094-3.801 2.094z"/></svg>
-                  <div class="hidden-sidebar">About Us</div>
+                  <div class="hidden-sidebar">About</div>
                 </a>
               </li>
              
@@ -126,7 +126,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                     37.573c-2.319 3.178-3.845 6.757-3.882 10.693c14.409 55.775 58.117 107.223 96.681 142.603c38.562 35.38 80.009 83.281 133.812 94.629c6.65 1.855 14.797 2.52 19.556-1.903l43.652-44.458c15.068-11.421 36.866-16.956 52.954-7.617h.732l148.021 
                     87.378c21.728 13.619 23.979 39.944 8.423 55.957L849.683 941.016c-15.056 15.44-35.058 20.631-54.491 20.654c-85.948-2.575-167.158-44.759-233.862-88.11c-109.49-79.653-209.923-178.446-272.975-297.803c-24.182-50.05-52.589-113.91-49.878-169.774c.242-21.016 
                     5.928-41.605 20.728-55.151l101.953-101.953c7.942-6.758 15.799-10.111 23.217-10.549z"/></svg>
-                  <div class="hidden-sidebar">Contact Us</div>
+                  <div class="hidden-sidebar">Contact</div>
                 </a>
               </li> 
               <li class="sidebar-list-item">
@@ -136,7 +136,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                       <path fill="currentColor" d="M10.08 10.86c.05-.33.16-.62.3-.87s.34-.46.59-.62c.24-.15.54-.22.91-.23.23.01.44.05.63.13.2.09.38.21.52.36s.25.33.34.53.13.42.14.64h1.79c-.02-.47-.11-.9-.28-1.29s-.4-.73-.7-1.01-.66-.5-1.08-.66-.88-.23-1.39-.23c-.65
                        0-1.22.11-1.7.34s-.88.53-1.2.92-.56.84-.71 1.36S8 11.29 8 11.87v.27c0 .58.08 1.12.23 1.64s.39.97.71 1.35.72.69 1.2.91 1.05.34 1.7.34c.47 0 .91-.08 1.32-.23s.77-.36 1.08-.63.56-.58.74-.94.29-.74.3-1.15h-1.79c-.01.21-.06.4-.15.58s-.21.33-.36.46-.32.23-.52.3c-.19.07-.39.09-.6.1-.36-.01-.66-.08-.89-.23-.25-.16-.45-.37-.59-.62s-.25-.55-.3-.88-.08-.67-.08-1v-.27c0-.35.03-.68.08-1.01zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path></g>
                     </svg>
-                  <div class="hidden-sidebar">Copyright 2022</div>
+                  <div class="hidden-sidebar">Appointment <br>System 2022</div>
                 </a>
               </li>
              <!-- <li class="sidebar-list-item">
@@ -184,8 +184,8 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
         <!-- MAin Body start--> 
         <div class="MainBody">  
         <div class="contact">
-          <div class="section-header"></div>
-        <section id="contact-section">
+          <div class="section-header"> </div>
+      <section id="contact-section">     <!-- <img src="Picture/Contact.png">  -->
            
             
             <div class="inner-contact">
@@ -197,7 +197,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                   <svg class="contact-icon " xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="3em" height="3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
                     <path  d="M10 2.009c-2.762 0-5 2.229-5 4.99c0 4.774 5 11 5 11s5-6.227 5-11c0-2.76-2.238-4.99-5-4.99zm0 7.751a2.7 2.7 0 1 1 0-5.4a2.7 2.7 0 0 1 0 5.4z"/></svg>
                     
-                    <span class="contact-text place">Morogn, Rizal</span></i></li>
+                    <span class="contact-text place">Morong, Rizal</span></i></li>
 
                   <li class="list-item"><i>
                   <svg class="contact-icon "  xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="3em" height="3em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
@@ -214,25 +214,25 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
 
                 <hr>
                 <ul class="social-media-list">
-                  <li>
+                  <li  onclick="window.location.href='https://www.facebook.com/groups/ursmsp';">
                   <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 12 24">
                     <path  d="M12.462.173v3.808h-2.265a2.11 2.11 0 0 0-1.675.521l.002-.002a2.368 2.368 0 0 0-.432 1.566v-.008v2.726h4.229l-.56 4.27H8.098V24H3.681V13.053H.001V8.784h3.68V5.639a5.56 5.56 0 0 1 1.502-4.162l-.003.003A5.418 5.418 0 0 1 9.185.002h-.013a24.124 24.124 0 0 1 3.406.185l-.117-.012z"/></svg>
                  
                   </li>
-                  <li>
+                  <li onclick="window.location.href='http://www.urs.edu.ph/';">
                   <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 496 512">
                     <path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 
                     41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6c24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 
                     0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6c-24.4-33.8-41.2-84.7-50-141.6h-108z"/></svg>
                    
                   </li>
-                  <li>
+                  <li onclick="window.location.href='';">
                   <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                     <path  d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578a9.3 9.3 0 0 1-2.958 1.13a4.66 4.66 0 0 0-7.938 4.25a13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342A4.66 4.66 0 0 0 3.96 9.824a4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568a4.692 4.692 
                     0 0 1-2.104.08a4.661 4.661 0 0 0 4.352 3.234a9.348 9.348 0 0 1-5.786 1.995a9.5 9.5 0 0 1-1.112-.065a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254c0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003Z"/></svg>
                       
                   </li>
-                  <li>
+                  <li onclick="window.location.href='';">
                   <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                     <path  d="M12 2c2.717 0 3.056.01 4.122.06c1.065.05 1.79.217 2.428.465c.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122c0 2.717-.01 3.056-.06 4.122c-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 
                     1-1.153 1.772a4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465c-1.066.047-1.405.06-4.122.06c-2.717 0-3.056-.01-4.122-.06c-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153a4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 
@@ -254,7 +254,7 @@ if(isset($_SESSION['Access']) && ($_SESSION['Access']) == "admin"){
                 <input placeholder="Let us know how to contact you back.." require></input></p>
               <p type="Message:">
                 <input placeholder="What would you like to tell us.." require></input></p>
-              <button type="submit"  name ="submit" id="submit" value="Reset">Send Message</button>
+              <button type="submit" class="submit"  name ="submit" id="submit" value="Reset">Send Message</button>
 
             </form>
 

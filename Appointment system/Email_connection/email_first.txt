@@ -1,0 +1,216 @@
+<?php
+$postData = $uploadedFile = $statusMsg = '';
+$msgClass = 'errordiv';
+include_once("Connections/connection.php");
+$con = connection();
+
+$id = $_GET['ID'];
+
+$sql = "SELECT * FROM stakeholders WHERE id = '$id'";
+$client = $con->query($sql) or die ($con->error);
+$row = $client->fetch_assoc();
+if(isset($_POST['submit'])){
+    // Get the submitted form data
+    $postData = $_POST;
+    $fname = $_POST['first_name'];
+  $lname = $_POST['last_name'];
+  $category = $_POST['category'];
+  $address = $_POST['address'];
+  $contact = $_POST['contact_No'];
+  $email = $_POST['email'];
+  $date = $_POST['date'];
+  $time = $_POST['time'];
+  $office = $_POST['office'];
+  $POA = $_POST['purpose_of_appoint'];
+  $status = $_POST['status'];
+
+
+    
+  $sql = "UPDATE stakeholders SET  first_name = '$fname', last_name = '$lname', category = '$category', address =
+  '$address',contact_No = '$contact',email = '$email', date = '$date',time = '$time',office = '$office',
+  purpose_of_appoint = '$POA', status  = '$status' WHERE id = '$id'";
+
+  $con->query($sql) or die ($con->error);
+
+  
+    // Check whether submitted data is not empty
+    if(!empty( $fname) && !empty($lname) && !empty($category) && !empty($address) && !empty($contact)
+    && !empty($email) && !empty($date) && !empty($time) && !empty($office) && !empty($POA)
+     && !empty($status)){
+        
+        // Validate email
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+            $statusMsg = 'Please enter your valid email.';
+        }else{
+            $uploadStatus = 1;
+            
+            // Upload attachment file
+            if(!empty($_FILES["attachment"]["name"])){
+                
+                // File path config
+                $targetDir = "uploads/";
+                $fileName = basename($_FILES["attachment"]["name"]);
+                $targetFilePath = $targetDir . $fileName;
+                $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+                
+                // Allow certain file formats
+                $allowTypes = array(".pdf", ".doc", 'docx', ".jpg", ".png", ".jpeg");
+                if(in_array($fileType, $allowTypes)){
+                    // Upload file to the server
+                    if(move_uploaded_file($_FILES["attachment"]["tmp_name"], $targetFilePath)){
+                        $uploadedFile = $targetFilePath;
+                    }else{
+                        $uploadStatus = 0;
+                        $statusMsg = "Sorry, there was an error uploading your file.";
+                    }
+                }else{
+                    $uploadStatus = 0;
+                    $statusMsg = 'Sorry, only PDF, DOC, JPG, JPEG, & PNG files are allowed to upload.';
+                }
+            }
+            
+            if($uploadStatus == 1){
+                
+                // Recipient
+                $toEmail = 'riancarl.nc@gmail.com';
+
+                // Sender
+                $from = 'URS@gmail.com';
+                $fromName = 'University of Rizal System';
+                
+                // Subject
+                $emailSubject = 'The Appointment Submitted by '.$fname;
+                
+                // Message 
+                $htmlContent = '<h2>Appointment Details</h2>
+                   
+                    <p><b>Name:</b> '.$fname.'</p>
+                    <p>'.$lname.'</p>
+                    <p><b>Category:</b> '.$category.'</p>
+                    <p><b>Address:</b> '.$address.'</p>
+                    <p><b>Contact:</b> '.$contact.'</p>
+                    <p><b>Email:</b> '.$email.'</p>
+                    <p><b>Date:</b> '.$date.'</p>
+                    <p><b>Time:</b> '.$time.'</p>
+                    <p><Office:</b> '.$office.'</p>
+                    <p><b>Purpase of Appointment:</b> '.$POA.'</p>
+                    <p><b>Status:</b><br/>'.$status.'</p>';
+                
+                // Header for sender info
+                $headers = "From: $fromName"." <".$from.">";
+
+                if(!empty($uploadedFile) && file_exists($uploadedFile)){
+                    
+                    // Boundary 
+                    $semi_rand = md5(time()); 
+                    $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
+                    
+                    // Headers for attachment 
+                    $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+                    
+                    // Multipart boundary 
+                    $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" .
+                    "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n"; 
+                    
+                    // Preparing attachment
+                    if(is_file($uploadedFile)){
+                        $message .= "--{$mime_boundary}\n";
+                        $fp =    @fopen($uploadedFile,"rb");
+                        $data =  @fread($fp,filesize($uploadedFile));
+                        @fclose($fp);
+                        $data = chunk_split(base64_encode($data));
+                        $message .= "Content-Type: application/octet-stream; name=\"".basename($uploadedFile)."\"\n" . 
+                        "Content-Description: ".basename($uploadedFile)."\n" .
+                        "Content-Disposition: attachment;\n" . " filename=\"".basename($uploadedFile)."\"; size=".filesize($uploadedFile).";\n" . 
+                        "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n";
+                    }
+                    
+                    $message .= "--{$mime_boundary}--";
+                    $returnpath = "-f" . $email;
+                    
+                    // Send email
+                    $mail = mail($toEmail, $emailSubject, $message, $headers, $returnpath);
+                    
+                    // Delete attachment file from the server
+                    @unlink($uploadedFile);
+                }else{
+                     // Set content-type header for sending HTML email
+                    $headers .= "\r\n". "MIME-Version: 1.0";
+                    $headers .= "\r\n". "Content-type:text/html;charset=UTF-8";
+                    
+                    // Send email
+                    $mail = mail($toEmail, $emailSubject, $htmlContent, $headers); 
+                }
+                
+                // If mail sent
+                if($mail){
+                    $statusMsg = 'The Email has been sent successfully !';
+                    $msgClass = 'succdiv';
+                    
+                    $postData = '';
+                }else{
+                    $statusMsg = 'The Email has been sent failed, please try again.';
+                }
+            }
+        }
+    }else{
+        $statusMsg = 'Please fill all the fields.';
+    }
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'Email_connection/PHPMailer/src/Exception.php';
+require 'Email_connection/PHPMailer/src/PHPMailer.php';
+require 'Email_connection/PHPMailer/src/SMTP.php';
+ 
+$mail = new PHPMailer(true);
+ 
+try {
+    //Server settings
+    $mail->SMTPDebug = 1;                                       // Enable verbose debug output
+    //$mail->isSMTP();                                            // Set mailer to use SMTP
+    $mail->Host       = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'riancarl.nc@gmail.com';                     // Your gmail address
+    $mail->Password   = 'riancarl9928';                               // Your gmail password
+    $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+    $mail->Port       = 25;                                    // TCP port to connect to 587 465
+ 
+    //Recipients
+    $mail->setFrom('carlgames28@gmail.com', 'URS');
+    $mail->addAddress($_POST["email"]);
+ 
+//  $file_name = $_FILES["file"]["name"];
+//  move_uploaded_file($_FILES["file"]["tmp_name"],$file_name);
+// $mail->addAttachment($file_name);
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $_POST["purpose_of_appoint"];
+    $mail->Body    = $_POST["status"];
+ 
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
